@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.example.eloquentretrofit.view.fragments.firstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/EditFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_consultFragment"
+            app:destination="@id/consultFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_InsertFragment"
+            app:destination="@id/InsertFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/EditFragment"
+        android:name="com.example.eloquentretrofit.view.fragments.editFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_edit">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/InsertFragment"
+        android:name="com.example.eloquentretrofit.view.fragments.insertFragment"
+        android:label="fragment_insert"
+        tools:layout="@layout/fragment_insert">
+        <action
+            android:id="@+id/action_InsertFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/consultFragment"
+        android:name="com.example.eloquentretrofit.view.fragments.consultFragment"
+        android:label="fragment_consult"
+        tools:layout="@layout/fragment_consult" >
+        <action
+            android:id="@+id/action_consultFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+</navigation>

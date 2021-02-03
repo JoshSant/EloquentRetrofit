@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragments.insertFragment" >
+
+    <EditText
+        android:id="@+id/etInsertMatricula"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/matricula"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/etInsertMarca"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etInsertMarca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/marca"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/etInsertModelo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etInsertMatricula" />
+
+    <EditText
+        android:id="@+id/etInsertModelo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/modelo"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/etInsertImagen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etInsertMarca" />
+
+    <EditText
+        android:id="@+id/etInsertImagen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/url_imagen"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/etInsertCaballos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etInsertModelo" />
+
+    <EditText
+        android:id="@+id/etInsertCaballos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/caballos"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/btInsertFrgm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etInsertImagen" />
+
+    <Button
+        android:id="@+id/btInsertFrgm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/insertar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etInsertCaballos" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
