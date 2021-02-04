@@ -15,10 +15,10 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.eloquentretrofit.R;
-import com.example.eloquentretrofit.model.pojo.coche;
-import com.example.eloquentretrofit.viewModel.androidViewModel;
+import com.example.eloquentretrofit.model.pojo.Coche;
+import com.example.eloquentretrofit.viewModel.AndroidViewModel;
 
-public class editFragment extends Fragment {
+public class EditFragment extends Fragment {
 
     private EditText etMatricula;
     private EditText etMarca;
@@ -27,7 +27,7 @@ public class editFragment extends Fragment {
     private EditText etCaballos;
     private Button btEditar;
 
-    private androidViewModel androidViewModel;
+    private AndroidViewModel androidViewModel;
 
     @Override
     public View onCreateView(
@@ -41,7 +41,7 @@ public class editFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        androidViewModel = new ViewModelProvider(this).get(androidViewModel.class);
+        androidViewModel = new ViewModelProvider(this).get(AndroidViewModel.class);
 
         etMatricula = view.findViewById(R.id.etEditMatricula);
         etMarca = view.findViewById(R.id.etEditMarca);
@@ -80,7 +80,7 @@ public class editFragment extends Fragment {
                     String foto = etImagen.getText().toString();
                     int caballos = Integer.parseInt(etCaballos.getText().toString());
 
-                    coche coche = new coche(matricula,marca,modelo,foto,caballos);
+                    Coche coche = new Coche(matricula,marca,modelo,foto,caballos);
 
                     androidViewModel.updateUsuario(id, coche);
 
@@ -105,7 +105,7 @@ public class editFragment extends Fragment {
                             Log.v("XYZCoche", coche.toString());
                         }
                     });*/
-                    NavHostFragment.findNavController(editFragment.this)
+                    NavHostFragment.findNavController(EditFragment.this)
                             .navigate(R.id.FirstFragment);
                 }
             }

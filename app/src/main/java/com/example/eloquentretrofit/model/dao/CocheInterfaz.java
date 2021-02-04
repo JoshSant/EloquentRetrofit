@@ -1,6 +1,6 @@
 package com.example.eloquentretrofit.model.dao;
 
-import com.example.eloquentretrofit.model.pojo.coche;
+import com.example.eloquentretrofit.model.pojo.Coche;
 
 import java.util.ArrayList;
 
@@ -13,21 +13,21 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
-public interface cocheInterfaz {
+public interface CocheInterfaz {
 
     @DELETE("coche/{id}")
     Call<Boolean> deleteCoche(@Path("id") long id);
 
     @GET("coche")
-    Call<ArrayList<coche>> getCoches();
+    Call<ArrayList<Coche>> getCoches();
 
     @GET("coche")
     Call<ResponseBody> getString();
 
     @POST("coche")
-    Call<coche> postCoche(@Body coche coche);
+    Call<Coche> postCoche(@Body Coche coche);
 
     @PUT("coche/{id}")
-    Call<Boolean> putCoche(@Path("id") long id, @Body coche coche);
+    Call<Boolean> putCoche(@Path("id") long id, @Body Coche coche);
 
 }

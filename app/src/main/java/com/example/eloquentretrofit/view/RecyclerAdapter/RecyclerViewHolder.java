@@ -2,7 +2,6 @@ package com.example.eloquentretrofit.view.RecyclerAdapter;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,17 +18,10 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.eloquentretrofit.model.dao.cocheInterfaz;
 import com.example.eloquentretrofit.R;
-import com.example.eloquentretrofit.viewModel.androidViewModel;
+import com.example.eloquentretrofit.viewModel.AndroidViewModel;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
-public class recyclerViewHolder extends RecyclerView.ViewHolder{
+public class RecyclerViewHolder extends RecyclerView.ViewHolder{
 
     private final ImageView imgCoche;
     private final TextView tvDatos;
@@ -38,11 +30,11 @@ public class recyclerViewHolder extends RecyclerView.ViewHolder{
     public final ConstraintLayout layout;
     private final View view;
 
-    private androidViewModel androidViewModel;
+    private AndroidViewModel androidViewModel;
 
-    public recyclerViewHolder(@NonNull View itemView){
+    public RecyclerViewHolder(@NonNull View itemView){
         super(itemView);
-        androidViewModel = new ViewModelProvider((ViewModelStoreOwner) itemView.getContext()).get(androidViewModel.class);
+        androidViewModel = new ViewModelProvider((ViewModelStoreOwner) itemView.getContext()).get(AndroidViewModel.class);
 
         view = itemView;
         this.imgCoche=itemView.findViewById(R.id.imgCoche);
@@ -104,9 +96,9 @@ public class recyclerViewHolder extends RecyclerView.ViewHolder{
 
     }
 
-    public static recyclerViewHolder create(ViewGroup parent){
+    public static RecyclerViewHolder create(ViewGroup parent){
             View view= LayoutInflater.from(parent.getContext())
             .inflate(R.layout.item_recycler,parent,false);
-            return new recyclerViewHolder(view);
+            return new RecyclerViewHolder(view);
     }
 }

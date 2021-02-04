@@ -18,7 +18,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.eloquentretrofit.R;
 
-public class consultFragment extends Fragment {
+public class ConsultFragment extends Fragment {
 
     private TextView tvMatricula;
     private TextView tvMarca;

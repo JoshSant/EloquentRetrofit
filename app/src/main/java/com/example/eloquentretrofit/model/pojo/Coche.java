@@ -1,12 +1,12 @@
 package com.example.eloquentretrofit.model.pojo;
 
-public class coche {
+public class Coche {
 
     private long id;
     private int caballos;
     private String marca, modelo, matricula, imagen;
 
-    public coche(String matricula, String marca, String modelo, String imagen, int caballos) {
+    public Coche(String matricula, String marca, String modelo, String imagen, int caballos) {
         this.matricula = matricula;
         this.marca = marca;
         this.modelo = modelo;

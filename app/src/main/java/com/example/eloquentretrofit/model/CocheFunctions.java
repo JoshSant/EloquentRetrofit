@@ -2,8 +2,8 @@ package com.example.eloquentretrofit.model;
 
 import android.util.Log;
 
-import com.example.eloquentretrofit.model.dao.cocheInterfaz;
-import com.example.eloquentretrofit.model.pojo.coche;
+import com.example.eloquentretrofit.model.dao.CocheInterfaz;
+import com.example.eloquentretrofit.model.pojo.Coche;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,39 +14,39 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class cocheFunctions {
+public class CocheFunctions {
 
     private String url = "https://informatica.ieszaidinvergeles.org:9038/laravel/miCocheApp/public/api/";
-    private List<coche> listaCoches = new ArrayList<>();
+    private List<Coche> listaCoches = new ArrayList<>();
 
-    public void insert(coche coche){
+    public void insert(Coche coche){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        cocheInterfaz cocheInter = retrofit.create(cocheInterfaz.class);
+        CocheInterfaz cocheInter = retrofit.create(CocheInterfaz.class);
 
-        Call<coche> request = cocheInter.postCoche(coche);
-        request.enqueue(new Callback<coche>() {
+        Call<Coche> request = cocheInter.postCoche(coche);
+        request.enqueue(new Callback<Coche>() {
             @Override
-            public void onResponse(Call<coche> call, Response<coche> response) {
+            public void onResponse(Call<Coche> call, Response<Coche> response) {
             }
 
             @Override
-            public void onFailure(Call<coche> call, Throwable t) {
+            public void onFailure(Call<Coche> call, Throwable t) {
                 Log.v("XYZ",t.getMessage());
             }
         });
     }
 
-    public void edit(long id, coche coche){
+    public void edit(long id, Coche coche){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        cocheInterfaz cocheInter = retrofit.create(cocheInterfaz.class);
+        CocheInterfaz cocheInter = retrofit.create(CocheInterfaz.class);
 
         Call<Boolean> request = cocheInter.putCoche(id, coche);
         request.enqueue(new Callback<Boolean>() {
@@ -69,7 +69,7 @@ public class cocheFunctions {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        cocheInterfaz coche = retrofit.create(cocheInterfaz.class);
+        CocheInterfaz coche = retrofit.create(CocheInterfaz.class);
 
         Call<Boolean> request = coche.deleteCoche(id);
 
@@ -85,26 +85,26 @@ public class cocheFunctions {
         });
     }
 
-    public List<coche> mostrar(){
+    public List<Coche> mostrar(){
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        cocheInterfaz coche = retrofit.create(cocheInterfaz.class);
+        CocheInterfaz coche = retrofit.create(CocheInterfaz.class);
 
-        Call<ArrayList<coche>> request = coche.getCoches();
-        request.enqueue(new Callback<ArrayList<coche>>() {
+        Call<ArrayList<Coche>> request = coche.getCoches();
+        request.enqueue(new Callback<ArrayList<Coche>>() {
             @Override
-            public void onResponse(Call<ArrayList<coche>> call, Response<ArrayList<coche>> response) {
+            public void onResponse(Call<ArrayList<Coche>> call, Response<ArrayList<Coche>> response) {
                 Log.v("XYZresponse", response.body().toString());
                 listaCoches = response.body();
                 Log.v("XYZlista", listaCoches.toString());
             }
 
             @Override
-            public void onFailure(Call<ArrayList<coche>> call, Throwable t) {
+            public void onFailure(Call<ArrayList<Coche>> call, Throwable t) {
                 Log.v("XYZ",t.getMessage());
             }
         });

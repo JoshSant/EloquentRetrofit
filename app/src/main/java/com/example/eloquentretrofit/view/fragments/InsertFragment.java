@@ -17,10 +17,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.eloquentretrofit.R;
-import com.example.eloquentretrofit.model.pojo.coche;
-import com.example.eloquentretrofit.viewModel.androidViewModel;
+import com.example.eloquentretrofit.model.pojo.Coche;
+import com.example.eloquentretrofit.viewModel.AndroidViewModel;
 
-public class insertFragment extends Fragment {
+public class InsertFragment extends Fragment {
 
     private EditText etMatricula;
     private EditText etMarca;
@@ -29,7 +29,7 @@ public class insertFragment extends Fragment {
     private EditText etCaballos;
     private Button btInsertar;
 
-    private androidViewModel androidViewModel;
+    private AndroidViewModel androidViewModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,7 +41,7 @@ public class insertFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        androidViewModel = new ViewModelProvider(this).get(androidViewModel.class);
+        androidViewModel = new ViewModelProvider(this).get(AndroidViewModel.class);
 
         etMatricula = view.findViewById(R.id.etInsertMatricula);
         etMarca = view.findViewById(R.id.etInsertMarca);
@@ -67,7 +67,7 @@ public class insertFragment extends Fragment {
                     String foto = etImagen.getText().toString();
                     int caballos = Integer.parseInt(etCaballos.getText().toString());
 
-                    coche coche = new coche(matricula,marca,modelo,foto,caballos);
+                    Coche coche = new Coche(matricula,marca,modelo,foto,caballos);
 
                     androidViewModel.insert(coche);
 
@@ -90,7 +90,7 @@ public class insertFragment extends Fragment {
                             Log.v("XYZ",t.getMessage());
                         }
                     });*/
-                    NavHostFragment.findNavController(insertFragment.this)
+                    NavHostFragment.findNavController(InsertFragment.this)
                             .navigate(R.id.FirstFragment);
                 }
             }

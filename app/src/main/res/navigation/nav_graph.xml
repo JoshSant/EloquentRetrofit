@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.eloquentretrofit.view.fragments.firstFragment"
+        android:name="com.example.eloquentretrofit.view.fragments.FirstFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
 
@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/EditFragment"
-        android:name="com.example.eloquentretrofit.view.fragments.editFragment"
+        android:name="com.example.eloquentretrofit.view.fragments.EditFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_edit">
 
@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/InsertFragment"
-        android:name="com.example.eloquentretrofit.view.fragments.insertFragment"
+        android:name="com.example.eloquentretrofit.view.fragments.InsertFragment"
         android:label="fragment_insert"
         tools:layout="@layout/fragment_insert">
         <action
@@ -42,7 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/consultFragment"
-        android:name="com.example.eloquentretrofit.view.fragments.consultFragment"
+        android:name="com.example.eloquentretrofit.view.fragments.ConsultFragment"
         android:label="fragment_consult"
         tools:layout="@layout/fragment_consult" >
         <action

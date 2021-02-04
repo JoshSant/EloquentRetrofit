@@ -1,26 +1,26 @@
 package com.example.eloquentretrofit.model;
 
-import com.example.eloquentretrofit.cochesAplication;
-import com.example.eloquentretrofit.model.pojo.coche;
+import com.example.eloquentretrofit.CochesAplication;
+import com.example.eloquentretrofit.model.pojo.Coche;
 
 import java.util.List;
 
-public class repository {
+public class Repository {
 
-    private List<coche> listaCoches;
-    private cocheFunctions cocheFunctions;
+    private List<Coche> listaCoches;
+    private CocheFunctions cocheFunctions;
 
-    public repository() {
-        this.cocheFunctions = new cocheFunctions();
+    public Repository() {
+        this.cocheFunctions = new CocheFunctions();
     }
 
-    public List<coche> getListaCoches() {
+    public List<Coche> getListaCoches() {
         listaCoches = cocheFunctions.mostrar();
         return listaCoches;
     }
 
-    public void insert(coche c) {
-        cochesAplication.threadExecutorPool.execute(new Runnable() {
+    public void insert(Coche c) {
+        CochesAplication.threadExecutorPool.execute(new Runnable() {
             @Override
             public void run() {
                 cocheFunctions.insert(c);
@@ -37,7 +37,7 @@ public class repository {
         }.start();
     }
 
-    public void updateUsuario(long id, coche coche){
+    public void updateUsuario(long id, Coche coche){
         new Thread(){
             @Override
             public void run() {

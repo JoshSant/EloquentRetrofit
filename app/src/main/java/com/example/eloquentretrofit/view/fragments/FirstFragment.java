@@ -15,29 +15,22 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.eloquentretrofit.R;
-import com.example.eloquentretrofit.model.pojo.coche;
-import com.example.eloquentretrofit.model.dao.cocheInterfaz;
-import com.example.eloquentretrofit.view.RecyclerAdapter.recyclerAdapter;
-import com.example.eloquentretrofit.viewModel.androidViewModel;
+import com.example.eloquentretrofit.model.pojo.Coche;
+import com.example.eloquentretrofit.view.RecyclerAdapter.RecyclerAdapter;
+import com.example.eloquentretrofit.viewModel.AndroidViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
-public class firstFragment extends Fragment {
+public class FirstFragment extends Fragment {
 
     private Button btInsertar;
     private Button btConsutar;
     private RecyclerView recycler;
-    private recyclerAdapter adapter;
-    private List<coche> listaCoches = new ArrayList<>();
+    private RecyclerAdapter adapter;
+    private List<Coche> listaCoches = new ArrayList<>();
 
-    private androidViewModel androidViewModel;
+    private AndroidViewModel androidViewModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,7 +41,7 @@ public class firstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        androidViewModel = new ViewModelProvider(this).get(androidViewModel.class);
+        androidViewModel = new ViewModelProvider(this).get(AndroidViewModel.class);
 
         btInsertar = view.findViewById(R.id.btInsertar);
         btConsutar = view.findViewById(R.id.btConsultar);
@@ -81,7 +74,7 @@ public class firstFragment extends Fragment {
         btInsertar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(firstFragment.this)
+                NavHostFragment.findNavController(FirstFragment.this)
                         .navigate(R.id.InsertFragment);
             }
         });
@@ -91,7 +84,7 @@ public class firstFragment extends Fragment {
             public void onClick(View v) {
                 listaCoches = androidViewModel.getListaCoches();
                 recycler.setHasFixedSize(true);
-                adapter = new recyclerAdapter(new recyclerAdapter.CocheDiff());
+                adapter = new RecyclerAdapter(new RecyclerAdapter.CocheDiff());
                 Log.v("XYZ", listaCoches.toString());
                 adapter.submitList(listaCoches);
 

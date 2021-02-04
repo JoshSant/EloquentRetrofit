@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragments.consultFragment" >
+    tools:context=".view.fragments.ConsultFragment" >
 
     <ImageView
         android:id="@+id/imgCocheFrgm"

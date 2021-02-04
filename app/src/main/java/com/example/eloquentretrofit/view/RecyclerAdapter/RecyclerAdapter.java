@@ -10,24 +10,24 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
-import com.example.eloquentretrofit.model.pojo.coche;
+import com.example.eloquentretrofit.model.pojo.Coche;
 import com.example.eloquentretrofit.R;
 
-public class recyclerAdapter extends ListAdapter<coche, recyclerViewHolder> {
+public class RecyclerAdapter extends ListAdapter<Coche, RecyclerViewHolder> {
 
-    public recyclerAdapter(@NonNull DiffUtil.ItemCallback<coche> diffCallback) {
+    public RecyclerAdapter(@NonNull DiffUtil.ItemCallback<Coche> diffCallback) {
         super(diffCallback);
     }
 
     @NonNull
     @Override
-    public recyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return recyclerViewHolder.create(parent);
+    public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return RecyclerViewHolder.create(parent);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull recyclerViewHolder holder, int position) {
-        coche current = getItem(position);
+    public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
+        Coche current = getItem(position);
         holder.bind(current.toString(), current.getImagen(), current.getId(),
                 current.getMatricula(), current.getMarca(), current.getModelo(), current.getCaballos());
         holder.layout.setOnClickListener(new View.OnClickListener() {
@@ -46,15 +46,15 @@ public class recyclerAdapter extends ListAdapter<coche, recyclerViewHolder> {
         });
     }
 
-    public static class CocheDiff extends DiffUtil.ItemCallback<coche> {
+    public static class CocheDiff extends DiffUtil.ItemCallback<Coche> {
 
         @Override
-        public boolean areItemsTheSame(@NonNull coche oldItem, @NonNull coche newItem) {
+        public boolean areItemsTheSame(@NonNull Coche oldItem, @NonNull Coche newItem) {
             return oldItem == newItem;
         }
 
         @Override
-        public boolean areContentsTheSame(@NonNull coche oldItem, @NonNull coche newItem) {
+        public boolean areContentsTheSame(@NonNull Coche oldItem, @NonNull Coche newItem) {
             return oldItem.getMatricula().equals(newItem.getMatricula());
         }
     }
