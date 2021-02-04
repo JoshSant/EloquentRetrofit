@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 import com.example.eloquentretrofit.R;
 import com.example.eloquentretrofit.model.pojo.Coche;
-import com.example.eloquentretrofit.viewModel.AndroidViewModel;
+import com.example.eloquentretrofit.viewModel.ViewModel;
 
 public class InsertFragment extends Fragment {
 
@@ -29,7 +29,7 @@ public class InsertFragment extends Fragment {
     private EditText etCaballos;
     private Button btInsertar;
 
-    private AndroidViewModel androidViewModel;
+    private ViewModel viewModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,7 +41,7 @@ public class InsertFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        androidViewModel = new ViewModelProvider(this).get(AndroidViewModel.class);
+        viewModel = new ViewModelProvider(this).get(ViewModel.class);
 
         etMatricula = view.findViewById(R.id.etInsertMatricula);
         etMarca = view.findViewById(R.id.etInsertMarca);
@@ -69,7 +69,7 @@ public class InsertFragment extends Fragment {
 
                     Coche coche = new Coche(matricula,marca,modelo,foto,caballos);
 
-                    androidViewModel.insert(coche);
+                    viewModel.insert(coche);
 
                     /*String url = "https://informatica.ieszaidinvergeles.org:9038/laravel/miCocheApp/public/api/";
                     Retrofit retrofit = new Retrofit.Builder()

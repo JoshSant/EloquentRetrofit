@@ -10,11 +10,11 @@ import com.example.eloquentretrofit.model.Repository;
 
 import java.util.List;
 
-public class AndroidViewModel extends androidx.lifecycle.AndroidViewModel {
+public class ViewModel extends androidx.lifecycle.AndroidViewModel {
 
     private Repository repository;
 
-    public AndroidViewModel(@NonNull Application application) {
+    public ViewModel(@NonNull Application application) {
         super(application);
         repository = new Repository();
     }

@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.eloquentretrofit.R;
-import com.example.eloquentretrofit.viewModel.AndroidViewModel;
+import com.example.eloquentretrofit.viewModel.ViewModel;
 
 public class RecyclerViewHolder extends RecyclerView.ViewHolder{
 
@@ -30,11 +30,11 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
     public final ConstraintLayout layout;
     private final View view;
 
-    private AndroidViewModel androidViewModel;
+    private ViewModel viewModel;
 
     public RecyclerViewHolder(@NonNull View itemView){
         super(itemView);
-        androidViewModel = new ViewModelProvider((ViewModelStoreOwner) itemView.getContext()).get(AndroidViewModel.class);
+        viewModel = new ViewModelProvider((ViewModelStoreOwner) itemView.getContext()).get(ViewModel.class);
 
         view = itemView;
         this.imgCoche=itemView.findViewById(R.id.imgCoche);
@@ -53,7 +53,7 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
         btBorrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                androidViewModel.deleteCoche(id);
+                viewModel.deleteCoche(id);
                 /*String url="https://informatica.ieszaidinvergeles.org:9038/laravel/miCocheApp/public/api/";
 
                 Retrofit retrofit = new Retrofit.Builder()

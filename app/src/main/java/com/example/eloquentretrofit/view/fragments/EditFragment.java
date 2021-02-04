@@ -16,7 +16,7 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.eloquentretrofit.R;
 import com.example.eloquentretrofit.model.pojo.Coche;
-import com.example.eloquentretrofit.viewModel.AndroidViewModel;
+import com.example.eloquentretrofit.viewModel.ViewModel;
 
 public class EditFragment extends Fragment {
 
@@ -27,7 +27,7 @@ public class EditFragment extends Fragment {
     private EditText etCaballos;
     private Button btEditar;
 
-    private AndroidViewModel androidViewModel;
+    private ViewModel viewModel;
 
     @Override
     public View onCreateView(
@@ -41,7 +41,7 @@ public class EditFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        androidViewModel = new ViewModelProvider(this).get(AndroidViewModel.class);
+        viewModel = new ViewModelProvider(this).get(ViewModel.class);
 
         etMatricula = view.findViewById(R.id.etEditMatricula);
         etMarca = view.findViewById(R.id.etEditMarca);
@@ -82,7 +82,7 @@ public class EditFragment extends Fragment {
 
                     Coche coche = new Coche(matricula,marca,modelo,foto,caballos);
 
-                    androidViewModel.updateUsuario(id, coche);
+                    viewModel.updateUsuario(id, coche);
 
                     /*String url = "https://informatica.ieszaidinvergeles.org:9038/laravel/miCocheApp/public/api/";
                     Retrofit retrofit = new Retrofit.Builder()

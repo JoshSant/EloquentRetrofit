@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.eloquentretrofit.R;
 import com.example.eloquentretrofit.model.pojo.Coche;
 import com.example.eloquentretrofit.view.RecyclerAdapter.RecyclerAdapter;
-import com.example.eloquentretrofit.viewModel.AndroidViewModel;
+import com.example.eloquentretrofit.viewModel.ViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ public class FirstFragment extends Fragment {
     private RecyclerAdapter adapter;
     private List<Coche> listaCoches = new ArrayList<>();
 
-    private AndroidViewModel androidViewModel;
+    private ViewModel viewModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,13 +41,13 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        androidViewModel = new ViewModelProvider(this).get(AndroidViewModel.class);
+        viewModel = new ViewModelProvider(this).get(ViewModel.class);
 
         btInsertar = view.findViewById(R.id.btInsertar);
         btConsutar = view.findViewById(R.id.btConsultar);
         recycler = view.findViewById(R.id.recyclerView);
 
-        listaCoches = androidViewModel.getListaCoches();
+        listaCoches = viewModel.getListaCoches();
 
         /*String url = "https://informatica.ieszaidinvergeles.org:9038/laravel/miCocheApp/public/api/";
         Retrofit retrofit = new Retrofit.Builder()
@@ -82,7 +82,7 @@ public class FirstFragment extends Fragment {
         btConsutar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listaCoches = androidViewModel.getListaCoches();
+                listaCoches = viewModel.getListaCoches();
                 recycler.setHasFixedSize(true);
                 adapter = new RecyclerAdapter(new RecyclerAdapter.CocheDiff());
                 Log.v("XYZ", listaCoches.toString());
