@@ -19,20 +19,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.eloquentretrofit.R;
+import com.example.eloquentretrofit.model.pojo.Ventas;
 import com.example.eloquentretrofit.viewModel.ViewModel;
 
-public class RecyclerViewHolder extends RecyclerView.ViewHolder{
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+public class RecyclerCochesViewHolder extends RecyclerView.ViewHolder{
 
     private final ImageView imgCoche;
     private final TextView tvDatos;
     private Button btEditar;
     private Button btBorrar;
+    private Button btVender;
     public final ConstraintLayout layout;
     private final View view;
 
     private ViewModel viewModel;
 
-    public RecyclerViewHolder(@NonNull View itemView){
+    public RecyclerCochesViewHolder(@NonNull View itemView){
         super(itemView);
         viewModel = new ViewModelProvider((ViewModelStoreOwner) itemView.getContext()).get(ViewModel.class);
 
@@ -41,6 +47,7 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
         this.tvDatos=itemView.findViewById(R.id.tvDatos);
         this.btEditar = itemView.findViewById(R.id.btEditar);
         this.btBorrar = itemView.findViewById(R.id.btBorrar);
+        this.btVender = itemView.findViewById(R.id.btVender);
         this.layout=itemView.findViewById(R.id.ConstraintLayoutItem);
     }
 
@@ -54,27 +61,6 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
             @Override
             public void onClick(View v) {
                 viewModel.deleteCoche(id);
-                /*String url="https://informatica.ieszaidinvergeles.org:9038/laravel/miCocheApp/public/api/";
-
-                Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl(url)
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .build();
-
-                cocheInterfaz coche = retrofit.create(cocheInterfaz.class);
-
-                Call<Boolean> request = coche.deleteCoche(id);
-
-                request.enqueue(new Callback<Boolean>() {
-                    @Override
-                    public void onResponse(Call<Boolean> call, Response<Boolean> response) {
-                    }
-
-                    @Override
-                    public void onFailure(Call<Boolean> call, Throwable t) {
-                        Log.v("XYZ", t.getMessage());
-                    }
-                });*/
             }
         });
 
@@ -93,12 +79,25 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
                 navController.navigate(R.id.EditFragment, bundle);
             }
         });
+        btVender.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+                Date date = new Date();
+
+                String fecha = dateFormat.format(date);
+
+                Ventas ventas = new Ventas(marca, modelo, matricula, imagCoche, fecha);
+                viewModel.insertVenta(ventas);
+                viewModel.deleteCoche(id);
+            }
+        });
 
     }
 
-    public static RecyclerViewHolder create(ViewGroup parent){
+    public static RecyclerCochesViewHolder create(ViewGroup parent){
             View view= LayoutInflater.from(parent.getContext())
             .inflate(R.layout.item_recycler,parent,false);
-            return new RecyclerViewHolder(view);
+            return new RecyclerCochesViewHolder(view);
     }
 }

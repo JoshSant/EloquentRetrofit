@@ -13,20 +13,20 @@ import androidx.recyclerview.widget.ListAdapter;
 import com.example.eloquentretrofit.model.pojo.Coche;
 import com.example.eloquentretrofit.R;
 
-public class RecyclerAdapter extends ListAdapter<Coche, RecyclerViewHolder> {
+public class RecyclerCochesAdapter extends ListAdapter<Coche, RecyclerCochesViewHolder> {
 
-    public RecyclerAdapter(@NonNull DiffUtil.ItemCallback<Coche> diffCallback) {
+    public RecyclerCochesAdapter(@NonNull DiffUtil.ItemCallback<Coche> diffCallback) {
         super(diffCallback);
     }
 
     @NonNull
     @Override
-    public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return RecyclerViewHolder.create(parent);
+    public RecyclerCochesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return RecyclerCochesViewHolder.create(parent);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerCochesViewHolder holder, int position) {
         Coche current = getItem(position);
         holder.bind(current.toString(), current.getImagen(), current.getId(),
                 current.getMatricula(), current.getMarca(), current.getModelo(), current.getCaballos());

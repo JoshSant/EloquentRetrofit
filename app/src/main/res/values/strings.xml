@@ -9,8 +9,8 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="insertar">Insertar</string>
-    <string name="consultar">Consultar</string>
+    <string name="insertar">Insertar coche</string>
+    <string name="consultarCoches">Consultar coches</string>
     <string name="editar">Editar</string>
     <string name="borrar">Borrar</string>
     <string name="imagen">imagen</string>
@@ -22,4 +22,6 @@
     <string name="url_imagen">Url imagen</string>
     <string name="caballos">Caballos</string>
     <string name="volver">Volver</string>
+    <string name="vender">Vender</string>
+    <string name="consultar_ventas">Consultar ventas</string>
 </resources>

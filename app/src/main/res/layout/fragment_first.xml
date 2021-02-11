@@ -13,7 +13,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:text="@string/insertar"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintBottom_toTopOf="@id/btVentas"
         app:layout_constraintEnd_toStartOf="@+id/btConsultar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,11 +22,21 @@
         android:id="@+id/btConsultar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/consultar"
+        android:text="@string/consultarCoches"
         app:layout_constraintBottom_toBottomOf="@+id/btInsertar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btInsertar"
         app:layout_constraintTop_toTopOf="@+id/btInsertar" />
+
+    <Button
+        android:id="@+id/btVentas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/consultar_ventas"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btConsultar" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -34,7 +44,8 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btInsertar" />
+        app:layout_constraintTop_toBottomOf="@id/btVentas" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

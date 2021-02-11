@@ -3,10 +3,11 @@ package com.example.eloquentretrofit.viewModel;
 import android.app.Application;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.MutableLiveData;
 
 import com.example.eloquentretrofit.model.pojo.Coche;
 import com.example.eloquentretrofit.model.Repository;
+import com.example.eloquentretrofit.model.pojo.Ventas;
 
 import java.util.List;
 
@@ -19,8 +20,11 @@ public class ViewModel extends androidx.lifecycle.AndroidViewModel {
         repository = new Repository();
     }
 
-    public List<Coche> getListaCoches() {
+    public MutableLiveData<List<Coche>> getListaCoches() {
         return repository.getListaCoches();
+    }
+    public MutableLiveData<List<Ventas>> getListaVentas() {
+        return repository.getListaVentas();
     }
 
     public void insert(Coche c) {
@@ -33,5 +37,13 @@ public class ViewModel extends androidx.lifecycle.AndroidViewModel {
 
     public void updateUsuario(long id, Coche coche){
         repository.updateUsuario(id, coche);
+    }
+
+    public void insertVenta(Ventas v) {
+        repository.insertVenta(v);
+    }
+
+    public void deleteVenta(long id) {
+        repository.deleteVenta(id);
     }
 }
